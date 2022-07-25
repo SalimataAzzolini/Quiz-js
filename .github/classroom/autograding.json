@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Vérification des tests",
+      "setup": "",
+      "run": "md5sum ./tests/script.test.js",
+      "input": "",
+      "output": "f840c4b6ace5b7cd83f2905c6837a39d",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Fonctionnement du quiz",
+      "setup": "cd ./tests && npm install",
+      "run": "cd ./tests && npm test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}

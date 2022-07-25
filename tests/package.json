@@ -1,0 +1,11 @@
+{
+  "name": "tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest --noStackTrace"
+  },
+  "author": "Le Bocal Academy",
+  "dependencies": {
+    "jest": "^27.4.7"
+  }
+}
