@@ -41,18 +41,13 @@ const questions = [
   },
 ];
 
-/********* NE PAS MODIFIER AU DESSUS DE CETTE LIGNE *********/
+
 
 /*************************/
 /* Contenu du DOM chargé */
 /*************************/
 document.addEventListener("DOMContentLoaded", () => {
-  // A FAIRE: Compléte le code pour faire fonctionner le quizz, pour plus d'informations consulte le sujet
-
-  /**
-   *  Stockage premier objet du tableau questions avec ses propriétes
-   *  Et prémière section qui contiendra la première question et ses réponses
-   */
+ 
   let question = document.querySelector("#question");
   let currentQuestion = questions[0].question;
   let currentAnswers = questions[0].answers;
@@ -96,8 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let index = 1; index < questions.length; index++) {
     const element = questions[index];
 
-    // console.log(element);
-
     let qContainer = document.createElement("section");
     qContainer.className = "question-container";
 
@@ -124,12 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
     span.hidden = true;
     span.innerText = element.correctAnswerIndex;
 
-    // qContainer.appendChild(p);
+
     qContainer.appendChild(ul);
     qContainer.insertBefore(p, ul);
     qContainer.appendChild(span);
 
-    // console.log(qContainer);
     document
       .querySelector(".main-container")
       .insertBefore(qContainer, document.querySelector(".result-container"));
@@ -152,7 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
     doAction();
     for (let index = 1; index < questionContainers.length; index++) {
       const QuestionContainer = questionContainers[index];
-      // console.log(QuestionContainer);
       QuestionContainer.style.display = "none";
     }
   };
@@ -164,14 +155,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function doAction() {
     answers.forEach((answer) => {
-      //  Ecoute click sur chaque bonne réponse
 
       answer.addEventListener("click", (e) => {
-        //  Fait référence  à l'évènement en cour
         doAction2(e.target);
-
+        
         //  *Incrémente questionContainer pour affiche question suivante
-
         let nextQuestionContainer = questionContainerIndex + 1;
         showQuestionContainer(nextQuestionContainer);
       });
@@ -184,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let parentUl = element.parentNode;
     console.log(parentUl);
     let parentSection = parentUl.parentNode;
-    // console.log(parentSection);
 
     const index = Array.from(parentUl.children).indexOf(element);
     console.log(element);
@@ -203,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let showQuestionContainer = (index) => {
     // si index est égal à la longueur du tableau contenant les sections.
     // Affiche message
-
     if (index === questionContainers.length) {
       document.querySelector("#question").textContent =
         " Merci pour avoir répondu. C'est tout pour aujourd'hui ";
@@ -212,10 +198,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Affecte la valeur de questionContainerIndex à lastQuestionContainerIndex
     let lastQuestionContainerIndex = questionContainerIndex;
-    // Récupère le reste de index divisé par la longueur de nos sections.
     index %= questionContainers.length;
 
-    questionContainerIndex = index; // reste division
+    questionContainerIndex = index; 
 
     // Cacher l'ancien QuestionContainer
     questionContainers[lastQuestionContainerIndex].style.display = "none ";
